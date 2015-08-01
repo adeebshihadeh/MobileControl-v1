@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name='apple-touch-fullscreen' content='yes'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    
+    <title>OctoPrint Mobile View</title>
+    
+    <link rel="manifest" href="manifest.json">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div id="first_time_setup">
+        <h1>OctoPrint</h1>
+        <div class="input-group">
+            <span class="input-group-addon">IP Address</span>
+            <input type="text" class="form-control" value="octopi.local" id="ip_field">
+        </div>
+        
+        <div class="input-group">
+            <span class="input-group-addon">API Key</span>
+            <input type="text" class="form-control" id="apikey_field">
+        </div>
+        
+        <button type="button" class="btn btn-success" id="test_connection_btn">Test Connection</button>
+        <button type="button" class="btn btn-default" id="next_screen_btn">Save & Continue</button>
+        
+        <h2 id="test_status"></h2>
+    </div>
+    
+    <div id="main">
+        <div id="control">
+        
+        </div>
+        <div id="terminal"></div>
+        <div id="settings">
+            <h1>Settings</h1>
+            <div class="input-group">
+                <span class="input-group-addon">IP Address</span>
+                <input type="text" class="form-control" value="octopi.local" id="ip_field">
+            </div>
+            
+            <div class="input-group">
+                <span class="input-group-addon">API Key</span>
+                <input type="text" class="form-control" id="apikey_field">
+            </div>
+            
+            <button type="button" class="btn btn-success" id="test_connection_btn">Test Connection</button>
+            <button type="button" class="btn btn-default" id="save_settings_btn">Save & Continue</button>
+            
+            <h2 id="test_status"></h2>
+        </div>
+    </div>
+    
+    <div id="printing_view">
+        <h1 id="printing_time_left">00:00:00</h1>
+        <h4 id="printing_time_elapsed">00:00:00</h4>
+    </div>
+    
+    <div id="disconnected_view">
+        
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>

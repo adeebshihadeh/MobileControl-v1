@@ -1,0 +1,16 @@
+body {
+    text-align: center;
+}
+
+#first_time_setup {
+    padding: 5px;
+    font-size: 150%;
+}
+
+#printing {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    color: black;
+}
