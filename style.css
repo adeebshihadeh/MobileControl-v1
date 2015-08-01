@@ -2,9 +2,36 @@ body {
     text-align: center;
 }
 
+.container-fluid {
+    padding-left: 0px;
+}
+
+.nav-sidebar {
+    background-color: #f5f5f5;
+    left: 0;
+    width: 15vw;
+}
+
+.menu-tab {
+    height: 25vh;
+    width: 15vw;
+    font-size: 10vw;
+    background-color: #22527B;
+    color: white;
+}
+
+.menu-tab-selected {
+    background-color: white;
+    color: #22527B;
+}
+
+#main {
+    padding: 0;
+    margin: 0;
+}
+
 #first_time_setup {
     padding: 5px;
-    font-size: 150%;
 }
 
 #printing {

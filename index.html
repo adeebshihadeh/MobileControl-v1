@@ -9,13 +9,11 @@
     
     <title>OctoPrint Mobile View</title>
     
-    <link rel="manifest" href="manifest.json">
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/bs/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     
-    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="libs/jquery-2.1.4.min.js"></script>
+    <script src="libs/bs/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -32,32 +30,40 @@
         </div>
         
         <button type="button" class="btn btn-success" id="test_connection_btn">Test Connection</button>
-        <button type="button" class="btn btn-default" id="next_screen_btn">Save & Continue</button>
+        <button type="button" class="btn btn-default" id="next_screen_btn">Save  Continue</button>
         
         <h2 id="test_status"></h2>
     </div>
     
     <div id="main">
-        <div id="control">
-        
-        </div>
-        <div id="terminal"></div>
-        <div id="settings">
-            <h1>Settings</h1>
-            <div class="input-group">
-                <span class="input-group-addon">IP Address</span>
-                <input type="text" class="form-control" value="octopi.local" id="ip_field">
+        <div class="container-fluid">
+            <div class="row row-offcanvas row-offcanvas-left">
+                <div class="col-xs-1 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+                    <ul class="nav nav-sidebar">
+                        <li><a class="menu-tab menu-tab-selected" id="info_tab_btn"><span class="glyphicon glyphicon-info-sign"></span></a></li>
+                        <li><a class="menu-tab" id="control_tab_btn"><span class="glyphicon glyphicon-move"></span></a></li>
+                        <li><a class="menu-tab" id="files_tab_btn"><span class="glyphicon glyphicon-file"></span></a></li>
+                        <li><a class="menu-tab" id="settings_tab_btn"><span class="glyphicon glyphicon-wrench"></span></a></li>
+                    </ul>
+                </div>
+                    <div class="col-xs-4 main">
+                        <div id="control_tab">
+                            control tab
+                        </div>
+                    
+                        <div id="info_tab">
+                            <p>info tab</p>
+                        </div>
+                        
+                        <div id="files_tab">
+                            files tab
+                        </div>
+                        
+                        <div id="settings_tab">
+                            settings tab
+                        </div>
+                    </div>
             </div>
-            
-            <div class="input-group">
-                <span class="input-group-addon">API Key</span>
-                <input type="text" class="form-control" id="apikey_field">
-            </div>
-            
-            <button type="button" class="btn btn-success" id="test_connection_btn">Test Connection</button>
-            <button type="button" class="btn btn-default" id="save_settings_btn">Save & Continue</button>
-            
-            <h2 id="test_status"></h2>
         </div>
     </div>
     
