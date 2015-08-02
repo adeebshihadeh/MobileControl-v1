@@ -28,8 +28,17 @@
     margin: 0;
 }
 
+#settings_tab {
+    text-align: center;
+}
+
 #first_time_setup {
     padding: 5px;
+    text-align: center;
+}
+
+.button-row {
+    margin-top: 5px;
 }
 
 #printing {
