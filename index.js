@@ -1,6 +1,5 @@
 var ip;
 var apikey;
-var jogIncrement = 10;
 
 $(document).ready(function() {
     setup();
@@ -149,33 +148,33 @@ $("#settings_tab_btn").click(function() {
 
 // control tab buttons
 $("#x_neg_jog_btn").click(function() {
-    sendCommand({"commands": ["G91","G1 X-" + jogIncrement,"G90"]});
+    sendCommand({"commands": ["G91","G1 X-" + $('input[name=jog_increment]:checked').val(),"G90"]});
 });
 $("#x_home_btn").click(function() {
     sendCommand({"command": "G28X"});
 });
 $("#x_pos_jog_btn").click(function() {
-    sendCommand({"commands": ["G91","G1 X" + jogIncrement,"G90"]});
+    sendCommand({"commands": ["G91","G1 X" + $('input[name=jog_increment]:checked').val(),"G90"]});
 });
 
 $("#y_neg_jog_btn").click(function() {
-    sendCommand({"commands": ["G91","G1 Y-" + jogIncrement,"G90"]});
+    sendCommand({"commands": ["G91","G1 Y-" + $('input[name=jog_increment]:checked').val(),"G90"]});
 });
 $("#y_home_btn").click(function() {
     sendCommand({"command": "G28Y"});
 });
 $("#y_pos_jog_btn").click(function() {
-    sendCommand({"commands": ["G91","G1 Y" + jogIncrement,"G90"]});
+    sendCommand({"commands": ["G91","G1 Y" + $('input[name=jog_increment]:checked').val(),"G90"]});
 });
 
 $("#z_neg_jog_btn").click(function() {
-    sendCommand({"commands": ["G91","G1 Z-" + jogIncrement,"G90"]});
+    sendCommand({"commands": ["G91","G1 Z-" + $('input[name=jog_increment]:checked').val(),"G90"]});
 });
 $("#z_home_btn").click(function() {
     sendCommand({"command": "G28Z"});
 });
 $("#z_pos_jog_btn").click(function() {
-    sendCommand({"commands": ["G91","G1 Z" + jogIncrement,"G90"]});
+    sendCommand({"commands": ["G91","G1 Z" + $('input[name=jog_increment]:checked').val(),"G90"]});
 });
 
 // settings tab
@@ -194,6 +193,8 @@ $("#restore_settings_btn").click(function(){
     $("#settings_apikey_field").val(apikey);
     $("#settings_test_status").text("");
 });
+
+$("").click
 
 // prevent scrolling
 document.ontouchmove = function(event){
