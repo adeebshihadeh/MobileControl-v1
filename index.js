@@ -1,4 +1,21 @@
-setup();
+var ip;
+var apikey;
+var jogIncrement = 10;
+
+$(document).ready(function() {
+    setup();
+});
+
+function sendCommand(data){
+    $.ajax({
+        url:  "http://"+ip+"/api/printer/command",
+        headers: {"X-Api-Key": apikey},
+        method: "POST",
+        timeout: 10000,
+        contentType: "application/json",
+        data: JSON.stringify(data)
+    });
+}
 
 function testConnection(){
     console.log("testing connection...");
@@ -25,6 +42,8 @@ function setup(){
         switchView("first_time_setup");
     }else {
         switchView("main");
+        ip = localStorage.getItem("ip_address");
+        apikey = localStorage.getItem("apikey");
         switchTab("info_tab");
     }
 }
@@ -44,12 +63,14 @@ function switchTab(tab){
     // deselect all tabs
     $("#info_tab_btn").removeClass("menu-tab-selected");
     $("#control_tab_btn").removeClass("menu-tab-selected");
+    $("#extrusion_tab_btn").removeClass("menu-tab-selected");
     $("#files_tab_btn").removeClass("menu-tab-selected");
     $("#settings_tab_btn").removeClass("menu-tab-selected");
     
     // hide all the contents of the tabs
     $("#info_tab").hide();
     $("#control_tab").hide();
+    $("#extrusion_tab").hide();
     $("#files_tab").hide();
     $("#settings_tab").hide();
     
@@ -77,9 +98,49 @@ $("#info_tab_btn").click(function() {
 $("#control_tab_btn").click(function() {
     switchTab("control_tab");
 });
+$("#extrusion_tab_btn").click(function() {
+    switchTab("extrusion_tab");
+});
 $("#files_tab_btn").click(function() {
     switchTab("files_tab");
 });
 $("#settings_tab_btn").click(function() {
     switchTab("settings_tab");
 });
+
+// control tab buttons
+$("#x_neg_jog_btn").click(function() {
+    sendCommand({"commands": ["G91","G1 X-" + jogIncrement,"G90"]});
+});
+$("#x_home_btn").click(function() {
+    sendCommand({"command": "G28X"});
+});
+$("#x_pos_jog_btn").click(function() {
+    sendCommand({"commands": ["G91","G1 X" + jogIncrement,"G90"]});
+});
+
+$("#y_neg_jog_btn").click(function() {
+    sendCommand({"commands": ["G91","G1 Y-" + jogIncrement,"G90"]});
+});
+$("#y_home_btn").click(function() {
+    sendCommand({"command": "G28Y"});
+});
+$("#y_pos_jog_btn").click(function() {
+    sendCommand({"commands": ["G91","G1 Y" + jogIncrement,"G90"]});
+});
+
+$("#z_neg_jog_btn").click(function() {
+    sendCommand({"commands": ["G91","G1 Z-" + jogIncrement,"G90"]});
+});
+$("#z_home_btn").click(function() {
+    sendCommand({"command": "G28Z"});
+});
+$("#z_pos_jog_btn").click(function() {
+    sendCommand({"commands": ["G91","G1 Z" + jogIncrement,"G90"]});
+});
+
+
+// prevent scrolling
+document.ontouchmove = function(event){
+    event.preventDefault();
+}
