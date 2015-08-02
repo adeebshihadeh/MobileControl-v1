@@ -1,0 +1,437 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE51A6851B6EA00C0009EEB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE51A6841B6EA00C0009EEB3 /* Images.xcassets */; };
+		BE526F261B6E991600005B15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE526F251B6E991600005B15 /* main.m */; };
+		BE526F291B6E991600005B15 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE526F281B6E991600005B15 /* AppDelegate.m */; };
+		BE526F2C1B6E991600005B15 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE526F2B1B6E991600005B15 /* ViewController.m */; };
+		BE526F2F1B6E991600005B15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE526F2D1B6E991600005B15 /* Main.storyboard */; };
+		BE526F341B6E991600005B15 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE526F321B6E991600005B15 /* LaunchScreen.xib */; };
+		BE526F401B6E991600005B15 /* OctoPrint_Mobile_ViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE526F3F1B6E991600005B15 /* OctoPrint_Mobile_ViewTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE526F3A1B6E991600005B15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE526F181B6E991600005B15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE526F1F1B6E991600005B15;
+			remoteInfo = "OctoPrint Mobile-View";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BE51A6841B6EA00C0009EEB3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BE526F201B6E991600005B15 /* OctoPrint Mobile-View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OctoPrint Mobile-View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE526F241B6E991600005B15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE526F251B6E991600005B15 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BE526F271B6E991600005B15 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BE526F281B6E991600005B15 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BE526F2A1B6E991600005B15 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BE526F2B1B6E991600005B15 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BE526F2E1B6E991600005B15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BE526F331B6E991600005B15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		BE526F391B6E991600005B15 /* OctoPrint Mobile-ViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OctoPrint Mobile-ViewTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE526F3E1B6E991600005B15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE526F3F1B6E991600005B15 /* OctoPrint_Mobile_ViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OctoPrint_Mobile_ViewTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE526F1D1B6E991600005B15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE526F361B6E991600005B15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE526F171B6E991600005B15 = {
+			isa = PBXGroup;
+			children = (
+				BE526F221B6E991600005B15 /* OctoPrint Mobile-View */,
+				BE526F3C1B6E991600005B15 /* OctoPrint Mobile-ViewTests */,
+				BE526F211B6E991600005B15 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE526F211B6E991600005B15 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE526F201B6E991600005B15 /* OctoPrint Mobile-View.app */,
+				BE526F391B6E991600005B15 /* OctoPrint Mobile-ViewTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE526F221B6E991600005B15 /* OctoPrint Mobile-View */ = {
+			isa = PBXGroup;
+			children = (
+				BE526F271B6E991600005B15 /* AppDelegate.h */,
+				BE526F281B6E991600005B15 /* AppDelegate.m */,
+				BE526F2A1B6E991600005B15 /* ViewController.h */,
+				BE526F2B1B6E991600005B15 /* ViewController.m */,
+				BE526F2D1B6E991600005B15 /* Main.storyboard */,
+				BE526F321B6E991600005B15 /* LaunchScreen.xib */,
+				BE51A6841B6EA00C0009EEB3 /* Images.xcassets */,
+				BE526F231B6E991600005B15 /* Supporting Files */,
+			);
+			path = "OctoPrint Mobile-View";
+			sourceTree = "<group>";
+		};
+		BE526F231B6E991600005B15 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE526F241B6E991600005B15 /* Info.plist */,
+				BE526F251B6E991600005B15 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE526F3C1B6E991600005B15 /* OctoPrint Mobile-ViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				BE526F3F1B6E991600005B15 /* OctoPrint_Mobile_ViewTests.m */,
+				BE526F3D1B6E991600005B15 /* Supporting Files */,
+			);
+			path = "OctoPrint Mobile-ViewTests";
+			sourceTree = "<group>";
+		};
+		BE526F3D1B6E991600005B15 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE526F3E1B6E991600005B15 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE526F1F1B6E991600005B15 /* OctoPrint Mobile-View */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE526F431B6E991600005B15 /* Build configuration list for PBXNativeTarget "OctoPrint Mobile-View" */;
+			buildPhases = (
+				BE526F1C1B6E991600005B15 /* Sources */,
+				BE526F1D1B6E991600005B15 /* Frameworks */,
+				BE526F1E1B6E991600005B15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OctoPrint Mobile-View";
+			productName = "OctoPrint Mobile-View";
+			productReference = BE526F201B6E991600005B15 /* OctoPrint Mobile-View.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BE526F381B6E991600005B15 /* OctoPrint Mobile-ViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE526F461B6E991600005B15 /* Build configuration list for PBXNativeTarget "OctoPrint Mobile-ViewTests" */;
+			buildPhases = (
+				BE526F351B6E991600005B15 /* Sources */,
+				BE526F361B6E991600005B15 /* Frameworks */,
+				BE526F371B6E991600005B15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE526F3B1B6E991600005B15 /* PBXTargetDependency */,
+			);
+			name = "OctoPrint Mobile-ViewTests";
+			productName = "OctoPrint Mobile-ViewTests";
+			productReference = BE526F391B6E991600005B15 /* OctoPrint Mobile-ViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE526F181B6E991600005B15 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = quillford;
+				TargetAttributes = {
+					BE526F1F1B6E991600005B15 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					BE526F381B6E991600005B15 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = BE526F1F1B6E991600005B15;
+					};
+				};
+			};
+			buildConfigurationList = BE526F1B1B6E991600005B15 /* Build configuration list for PBXProject "OctoPrint Mobile-View" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BE526F171B6E991600005B15;
+			productRefGroup = BE526F211B6E991600005B15 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE526F1F1B6E991600005B15 /* OctoPrint Mobile-View */,
+				BE526F381B6E991600005B15 /* OctoPrint Mobile-ViewTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE526F1E1B6E991600005B15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE51A6851B6EA00C0009EEB3 /* Images.xcassets in Resources */,
+				BE526F2F1B6E991600005B15 /* Main.storyboard in Resources */,
+				BE526F341B6E991600005B15 /* LaunchScreen.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE526F371B6E991600005B15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE526F1C1B6E991600005B15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE526F2C1B6E991600005B15 /* ViewController.m in Sources */,
+				BE526F291B6E991600005B15 /* AppDelegate.m in Sources */,
+				BE526F261B6E991600005B15 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE526F351B6E991600005B15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE526F401B6E991600005B15 /* OctoPrint_Mobile_ViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE526F3B1B6E991600005B15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE526F1F1B6E991600005B15 /* OctoPrint Mobile-View */;
+			targetProxy = BE526F3A1B6E991600005B15 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BE526F2D1B6E991600005B15 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE526F2E1B6E991600005B15 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BE526F321B6E991600005B15 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE526F331B6E991600005B15 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BE526F411B6E991600005B15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE526F421B6E991600005B15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE526F441B6E991600005B15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "OctoPrint Mobile-View/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BE526F451B6E991600005B15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "OctoPrint Mobile-View/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BE526F471B6E991600005B15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "OctoPrint Mobile-ViewTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OctoPrint Mobile-View.app/OctoPrint Mobile-View";
+			};
+			name = Debug;
+		};
+		BE526F481B6E991600005B15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "OctoPrint Mobile-ViewTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OctoPrint Mobile-View.app/OctoPrint Mobile-View";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE526F1B1B6E991600005B15 /* Build configuration list for PBXProject "OctoPrint Mobile-View" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE526F411B6E991600005B15 /* Debug */,
+				BE526F421B6E991600005B15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE526F431B6E991600005B15 /* Build configuration list for PBXNativeTarget "OctoPrint Mobile-View" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE526F441B6E991600005B15 /* Debug */,
+				BE526F451B6E991600005B15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE526F461B6E991600005B15 /* Build configuration list for PBXNativeTarget "OctoPrint Mobile-ViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE526F471B6E991600005B15 /* Debug */,
+				BE526F481B6E991600005B15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE526F181B6E991600005B15 /* Project object */;
+}
