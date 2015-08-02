@@ -30,7 +30,7 @@
         </div>
         
         <button type="button" class="btn btn-success" id="test_connection_btn">Test Connection</button>
-        <button type="button" class="btn btn-default" id="next_screen_btn">Save  Continue</button>
+        <button type="button" class="btn btn-default" id="next_screen_btn">Save and Continue</button>
         
         <h2 id="test_status"></h2>
     </div>
@@ -81,7 +81,19 @@
                     </div>
                     
                     <div id="settings_tab">
-                        settings tab
+                        <h1>Settings</h1>
+                        
+                        <div class="input-group">
+                            <span class="input-group-addon">IP Address</span>
+                            <input type="text" class="form-control" id="settings_ip_field">
+                        </div>
+                        
+                        <div class="input-group">
+                            <span class="input-group-addon">API Key</span>
+                            <input type="text" class="form-control" id="settings_apikey_field">
+                        </div>
+                        
+                        <button type="button" class="btn btn-default" id="save_settings_btn">Save Settings</button>
                     </div>
                 </div>
             </div>

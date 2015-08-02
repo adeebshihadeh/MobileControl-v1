@@ -86,8 +86,10 @@ $("#test_connection_btn").click(function() {
     testConnection();
 });
 $("#next_screen_btn").click(function () {
-    localStorage.setItem("ip_address", $("#ip_field").val());
-    localStorage.setItem("apikey", $("#apikey_field").val());
+    ip = $("#ip_field").val();
+    apikey = $("#apikey_field").val();
+    localStorage.setItem("ip_address", ip);
+    localStorage.setItem("apikey", apikey);
     switchView("main");
 });
 
@@ -106,6 +108,9 @@ $("#files_tab_btn").click(function() {
 });
 $("#settings_tab_btn").click(function() {
     switchTab("settings_tab");
+    
+    $("#settings_ip_field").val(ip);
+    $("#settings_apikey_field").val(apikey); 
 });
 
 // control tab buttons
@@ -139,6 +144,13 @@ $("#z_pos_jog_btn").click(function() {
     sendCommand({"commands": ["G91","G1 Z" + jogIncrement,"G90"]});
 });
 
+// settings tab
+$("#save_settings_btn").click(function(){
+    ip = $("#settings_ip_field").val();
+    localStorage.setItem("ip_address", ip);
+    apikey = $("#settings_apikey_field").val();
+    localStorage.setItem("apikey", apikey);
+});
 
 // prevent scrolling
 document.ontouchmove = function(event){
