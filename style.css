@@ -23,12 +23,20 @@
     color: #22527B;
 }
 
+.btn-spaced {
+    margin-top: 5px;
+}
+
 #main {
     padding: 0;
     margin: 0;
 }
 
 #settings_tab {
+    text-align: center;
+}
+
+#control_tab {
     text-align: center;
 }
 

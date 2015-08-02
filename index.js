@@ -177,6 +177,16 @@ $("#z_pos_jog_btn").click(function() {
     sendCommand({"commands": ["G91","G1 Z" + $('input[name=jog_increment]:checked').val(),"G90"]});
 });
 
+$("#motors_off_btn").click(function() {
+    sendCommand({"command": "M18"});
+});
+$("#fan_on_btn").click(function() {
+    sendCommand({"command": "M106"});
+});
+$("#fan_off_btn").click(function() {
+    sendCommand({"command": "M106 S0"});
+});
+
 // settings tab
 $("#save_settings_btn").click(function(){
     ip = $("#settings_ip_field").val();
