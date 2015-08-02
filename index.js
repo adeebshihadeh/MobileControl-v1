@@ -204,7 +204,15 @@ $("#restore_settings_btn").click(function(){
     $("#settings_test_status").text("");
 });
 
-$("").click
+// extrusion tab  buttons
+$("#extrude_btn").click(function(){
+    sendCommand({"commands": ["G91","G1 E" + $('input[name=extrude_length]:checked').val() + " F300","G90"]});
+});
+$("#retract_btn").click(function(){
+    sendCommand({"commands": ["G91","G1 E-" + $('input[name=extrude_length]:checked').val() + " F300","G90"]});
+});
+
+
 
 // prevent scrolling
 document.ontouchmove = function(event){

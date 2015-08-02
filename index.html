@@ -94,7 +94,27 @@
                     </div>
                     
                     <div id="extrusion_tab">
-                        extrusion tab
+                        
+                        <div class="row">
+                            <div class="btn-group btn-spaced" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type="radio" name="extrude_length" value="1"/> 1
+                                </label> 
+                                <label class="btn btn-default">
+                                    <input type="radio" name="extrude_length" value="5" /> 5
+                                </label> 
+                                <label class="btn btn-default active">
+                                    <input type="radio" name="extrude_length" value="10" checked="checked" /> 10
+                                </label> 
+                                <label class="btn btn-default">
+                                    <input type="radio" name="extrude_length" value="100" /> 100
+                                </label>
+                            </div>
+                        </div>
+                        
+                        
+                        <button type="button" class="btn btn-lg btn-success btn-spaced" id="extrude_btn">Extrude</button>
+                        <button type="button" class="btn btn-lg btn-danger btn-spaced" id="retract_btn">Retract</button>
                     </div>
                 
                     <div id="info_tab">
