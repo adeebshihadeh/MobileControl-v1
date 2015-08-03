@@ -9,11 +9,13 @@
     
     <title>OctoPrint Mobile View</title>
     
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="libs/bs/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     
     <script src="libs/jquery-2.1.4.min.js"></script>
     <script src="libs/bs/js/bootstrap.min.js"></script>
+    <script src="libs/sockjs.min.js"></script>
 </head>
 
 <body>
@@ -49,7 +51,7 @@
                         <li><a class="menu-tab" id="settings_tab_btn"><span class="glyphicon glyphicon-cog"></span></a></li>
                     </ul>
                 </div>
-                <div class="col-xs-10 main">
+                <div class="col-xs-10 main no-padding">
                     <div id="control_tab">
                         <div class="col-xs-8">
                             <div class="btn-group">
@@ -118,7 +120,10 @@
                     </div>
                 
                     <div id="info_tab">
-                        <p>info tab</p>
+                        <p class="info-bar" id="temperatures"></p>
+                        <p class="info-bar" id="bed_temp"></p>
+                        <p class="info-bar" id="printer_position"></p>
+                        <p class="info-bar" id="printer_status"></p>
                     </div>
                     
                     <div id="files_tab">

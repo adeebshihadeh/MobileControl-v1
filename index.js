@@ -1,9 +1,20 @@
 var ip;
 var apikey;
+var socket;
+var printing = false;
 
 $(document).ready(function() {
     setup();
 });
+
+function connect(){
+    socket = new WebSocket("ws://"+ip+"/sockjs/websocket");
+    
+    socket.onmessage = function(e) {
+        //console.log('message', e.data);
+        parseData(e.data);
+    };
+}
 
 function sendCommand(data){
     $.ajax({
@@ -70,13 +81,13 @@ function testConnection(instance){
 
 function setup(){
     if(localStorage.getItem("ip_address") === null && localStorage.getItem("apikey") === null){
-        
         // show the first time setup
         switchView("first_time_setup");
     }else {
         switchView("main");
         ip = localStorage.getItem("ip_address");
         apikey = localStorage.getItem("apikey");
+        connect();
         switchTab("info_tab");
     }
 }
@@ -112,6 +123,64 @@ function switchTab(tab){
     $("#"+tab).show();
 }
 
+function parseData(dataString){
+    var data = JSON.parse(dataString);
+    console.log(data);
+    
+    // uppdate printer status
+    $("#printer_status").text(data.current.state.text);
+    
+    // update printer temps
+    // if(typeof(data.current.temps.tool1) === "undefined"){
+    //     $("#extruder_temp").text("E0: " + data.current.temps[0] + " / " + data.current.temps[tool0.target]);
+    // }else {
+    //     $("#extruder_temp").text("E0: " + data.current.temps.tool0.actual + " / " + data.current.temps.tool0.target);
+    // }
+    if(typeof(data.current.temps) !== "undefined"){
+        var bedTemp;
+        if(typeof(data.current.temps[0].bed) !== "undefined"){
+            if(data.current.temps[0].bed.target == 0){
+                bedTemp = "Bed: "+data.current.temps[0].bed.actual + "ºC";
+            }else {
+                bedTemp = "Bed: "+data.current.temps[0].bed.actual + "ºC / " + data.current.temps[0].bed.target + "ºC";
+            }
+        } else {
+            bedTemp = "null";
+        }
+        var e0Temp;
+        if(typeof(data.current.temps[0].tool0) !== "undefined"){
+            if(data.current.temps[0].tool0.target == 0){
+                e0Temp = "E0: "+data.current.temps[0].tool0.actual + "ºC";
+            }else {
+                e0Temp = "E0: "+data.current.temps[0].tool0.actual + "ºC / " + data.current.temps[0].tool0.target + "ºC";
+            }
+        } else {
+            e0Temp = "null";
+        }
+        var e1Temp;
+        if(typeof(data.current.temps[0].tool1) !== "undefined"){
+            if(data.current.temps[0].tool0.target == 0){
+                e1Temp = "E1: "+data.current.temps[0].tool1.actual + "ºC";
+            }else {
+                e1Temp = "E0: "+data.current.temps[0].tool1.actual + "ºC / " + data.current.temps[0].tool1.target + "ºC";
+            }
+        } else {
+            e1Temp = "null";
+        }
+        var tempString;
+        if(e0Temp != "null"){
+            tempString = e0Temp;
+        }
+        if(e1Temp != "null"){
+            tempString = tempString + " " + e1Temp;
+        }
+        if(bedTemp != "null"){
+            tempString = tempString + " " + bedTemp;
+        }
+        $("#temperatures").text(tempString);    
+    }
+}
+
 // ------------- button click events -------------
 // first time setup buttons
 $("#test_connection_btn").click(function() {
@@ -122,6 +191,7 @@ $("#next_screen_btn").click(function () {
     apikey = $("#apikey_field").val();
     localStorage.setItem("ip_address", ip);
     localStorage.setItem("apikey", apikey);
+    connect();
     switchView("main");
     switchTab("info_tab");
 });
@@ -193,6 +263,7 @@ $("#save_settings_btn").click(function(){
     localStorage.setItem("ip_address", ip);
     apikey = $("#settings_apikey_field").val();
     localStorage.setItem("apikey", apikey);
+    connect();
 });
 $("#settings_test_connection_btn").click(function(){
     testConnection("settings-screen");
@@ -211,8 +282,6 @@ $("#extrude_btn").click(function(){
 $("#retract_btn").click(function(){
     sendCommand({"commands": ["G91","G1 E-" + $('input[name=extrude_length]:checked').val() + " F300","G90"]});
 });
-
-
 
 // prevent scrolling
 document.ontouchmove = function(event){
