@@ -15,7 +15,6 @@
     
     <script src="libs/jquery-2.1.4.min.js"></script>
     <script src="libs/bs/js/bootstrap.min.js"></script>
-    <script src="libs/sockjs.min.js"></script>
 </head>
 
 <body>
@@ -155,15 +154,15 @@
     </div>
     
     <div id="printing_view">
-        <h1 id="printing_time_left">00:00:00</h1>
-        <h4 id="printing_time_elapsed">00:00:00</h4>
+        <p id="printing_time_left">00:00:00</p>
+        <p id="printing_time_elapsed">00:00:00</p>
     </div>
     
     <div id="disconnected_view">
         <div class="jumbotron">
             <h1>Disconnedcted</h1>
             <p>Cannot connect to your OctoPrint server. Make sure it is powered on and running. Also make sure, that the apikey and CORS are enabled. You must be on the same network as the server.</p>
-            <p><a class="btn btn-primary btn-lg" role="button">Reconnect</a></p>
+            <button type="button" class="btn btn-lg btn-primary" id="reconnect_">Reconnect</button>
         </div>
     </div>
     

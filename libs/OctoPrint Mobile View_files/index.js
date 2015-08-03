@@ -1,6 +1,7 @@
 var ip;
 var apikey;
 var socket;
+var printing = false;
 var currentView;
 
 $(document).ready(function() {
@@ -34,9 +35,6 @@ function sendCommand(data){
 
 function testConnection(instance){
     console.log("testing connection...");
-    
-    var test_ip;
-    var test_apikey;
     
     switch(instance){
         case "first-setup":
@@ -145,7 +143,7 @@ function parseData(dataString){
             // update printer temps
             var bedTemp;
             if(typeof(data.current.temps[0].bed) !== "undefined"){
-                if(data.current.temps[0].bed.target === 0){
+                if(data.current.temps[0].bed.target == 0){
                     bedTemp = "Bed: "+data.current.temps[0].bed.actual + "ºC";
                 }else {
                     bedTemp = "Bed: "+data.current.temps[0].bed.actual + "ºC / " + data.current.temps[0].bed.target + "ºC";
@@ -155,7 +153,7 @@ function parseData(dataString){
             }
             var e0Temp;
             if(typeof(data.current.temps[0].tool0) !== "undefined"){
-                if(data.current.temps[0].tool0.target === 0){
+                if(data.current.temps[0].tool0.target == 0){
                     e0Temp = "E0: "+data.current.temps[0].tool0.actual + "ºC";
                 }else {
                     e0Temp = "E0: "+data.current.temps[0].tool0.actual + "ºC / " + data.current.temps[0].tool0.target + "ºC";
@@ -165,7 +163,7 @@ function parseData(dataString){
             }
             var e1Temp;
             if(typeof(data.current.temps[0].tool1) !== "undefined"){
-                if(data.current.temps[0].tool0.target === 0){
+                if(data.current.temps[0].tool0.target == 0){
                     e1Temp = "E1: "+data.current.temps[0].tool1.actual + "ºC";
                 }else {
                     e1Temp = "E0: "+data.current.temps[0].tool1.actual + "ºC / " + data.current.temps[0].tool1.target + "ºC";
@@ -317,4 +315,4 @@ $("#retract_btn").click(function(){
 // prevent scrolling
 document.ontouchmove = function(event){
     event.preventDefault();
-};
+}

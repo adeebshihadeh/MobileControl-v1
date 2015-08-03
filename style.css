@@ -77,12 +77,21 @@
     text-align: center;
 }
 
-#printing {
+#printing_view {
     text-align: center;
-    position: relative;
     top: 50%;
-    transform: translateY(-50%);
+    /*transform: translateY(-50%);*/
     color: black;
+    height: 100vh;
+    
+}
+
+#printing_time_left {
+    font-size: 23vw;
+}
+
+#printing_time_elapsed {
+    font-size: 10vw;
 }
 
 #temperatures {
