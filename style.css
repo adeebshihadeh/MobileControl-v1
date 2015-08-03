@@ -25,6 +25,22 @@
     margin-top: 5px;
 }
 
+#control_tab > div > .btn-group {
+    width: 100%;
+}
+
+#control_tab > div > .row > .btn-group{
+    width: 100%;
+}
+
+.btn-horizontal-thirds {
+    width: 33%;
+}
+
+.btn-horizontal-fourths {
+    width: 25%;
+}
+
 .info-bar {
     width: 100%;
     height: 25vh;
