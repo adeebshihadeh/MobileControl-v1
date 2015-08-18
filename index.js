@@ -1,3 +1,6 @@
+// settings
+var hotend_min_temp_limit = 0; // lowest value the interface will allow the hotend to be set to
+
 var ip;
 var apikey;
 var socket;
@@ -319,6 +322,21 @@ $("#set_temp_btn").click(function(){
 $("#hotend_off_btn").click(function(){
     sendCommand({"command": "M104 S0"});
 });
+$("#neg_increment_temp_btn").click(function(){
+    $("#hotend_temp_field").val(parseInt($("#hotend_temp_field").val())-1);
+    
+    if(parseInt($("#hotend_temp_field").val()) === hotend_min_temp_limit){
+        $("#neg_increment_temp_btn").prop("disabled", true);
+    }
+});
+$("#pos_increment_temp_btn").click(function(){
+    $("#hotend_temp_field").val(parseInt($("#hotend_temp_field").val())+1);
+    
+    if(parseInt($("#hotend_temp_field").val()) !== hotend_min_temp_limit){
+        $("#neg_increment_temp_btn").prop("disabled", false);
+    }
+});
+
 
 // prevent scrolling
 document.ontouchmove = function(event){
