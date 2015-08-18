@@ -17,7 +17,6 @@ function connect(){
     
     socket.onclose = function() {
         switchView("disconnected_view");
-        
     };
 }
 
@@ -144,7 +143,7 @@ function parseData(dataString){
         if(typeof(data.current.temps[0]) !== "undefined"){
             // update printer temps
             var bedTemp;
-            if(typeof(data.current.temps[0].bed) !== "undefined"){
+            if(typeof(data.current.temps[0].bed) !== "undefined" && data.current.temps[0].bed.actual !== null){
                 if(data.current.temps[0].bed.target === 0){
                     bedTemp = "Bed: "+data.current.temps[0].bed.actual + "ºC";
                 }else {
@@ -156,9 +155,9 @@ function parseData(dataString){
             var e0Temp;
             if(typeof(data.current.temps[0].tool0) !== "undefined"){
                 if(data.current.temps[0].tool0.target === 0){
-                    e0Temp = "E0: "+data.current.temps[0].tool0.actual + "ºC";
+                    e0Temp = "<i class='icon ion-thermometer'></i>0: "+data.current.temps[0].tool0.actual + "ºC";
                 }else {
-                    e0Temp = "E0: "+data.current.temps[0].tool0.actual + "ºC / " + data.current.temps[0].tool0.target + "ºC";
+                    e0Temp = "<i class='icon ion-thermometer'></i>0: "+data.current.temps[0].tool0.actual + "ºC / " + data.current.temps[0].tool0.target + "ºC";
                 }
             } else {
                 e0Temp = "null";
@@ -166,9 +165,9 @@ function parseData(dataString){
             var e1Temp;
             if(typeof(data.current.temps[0].tool1) !== "undefined"){
                 if(data.current.temps[0].tool0.target === 0){
-                    e1Temp = "E1: "+data.current.temps[0].tool1.actual + "ºC";
+                    e1Temp = "<i class='icon ion-thermometer'></i>1: "+data.current.temps[0].tool1.actual + "ºC";
                 }else {
-                    e1Temp = "E0: "+data.current.temps[0].tool1.actual + "ºC / " + data.current.temps[0].tool1.target + "ºC";
+                    e1Temp = "<i class='icon ion-thermometer'></i>1: "+data.current.temps[0].tool1.actual + "ºC / " + data.current.temps[0].tool1.target + "ºC";
                 }
             } else {
                 e1Temp = "null";
@@ -183,7 +182,7 @@ function parseData(dataString){
             if(bedTemp != "null"){
                 tempString = tempString + " " + bedTemp;
             }
-            $("#temperatures").text(tempString);
+            $("#temperatures").html(tempString);
         }
         if(data.current.state.flags.printing){
             // switch to the printing view
@@ -312,6 +311,13 @@ $("#extrude_btn").click(function(){
 });
 $("#retract_btn").click(function(){
     sendCommand({"commands": ["G91","G1 E-" + $('input[name=extrude_length]:checked').val() + " F300","G90"]});
+});
+
+$("#set_temp_btn").click(function(){
+    sendCommand({"command": "M104 S" + $("#hotend_temp_field").val()});
+});
+$("#hotend_off_btn").click(function(){
+    sendCommand({"command": "M104 S0"});
 });
 
 // prevent scrolling

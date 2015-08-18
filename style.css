@@ -68,6 +68,15 @@
     border-radius: 0;
 }
 
+.row-half-screen {
+    height: 50vh;
+    margin: 0;
+}
+
+.row-no-margin {
+    margin: 0;
+}
+
 #main {
     padding: 0;
     margin: 0;
@@ -129,4 +138,8 @@
 #printer_status {
     background-color: red;
     font-size: 16vh;
+}
+
+#hotend_temp_field {
+    text-align: center;
 }
