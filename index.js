@@ -16,6 +16,10 @@ function connect(){
     socket.onmessage = function(e) {
         //console.log('message', e.data);
         parseData(e.data);
+        
+        if(currentView === "disconnected_view"){
+            switchView("main");
+        }
     };
     
     socket.onclose = function() {
@@ -152,40 +156,17 @@ function parseData(dataString){
                 }else {
                     bedTemp = "Bed: "+data.current.temps[0].bed.actual + "ºC / " + data.current.temps[0].bed.target + "ºC";
                 }
-            } else {
-                bedTemp = "null";
+                $("#bed_temp").html(bedTemp);
             }
             var e0Temp;
             if(typeof(data.current.temps[0].tool0) !== "undefined"){
                 if(data.current.temps[0].tool0.target === 0){
-                    e0Temp = "<i class='icon ion-thermometer'></i>0: "+data.current.temps[0].tool0.actual + "ºC";
+                    e0Temp = "<i class='icon ion-thermometer'></i> "+data.current.temps[0].tool0.actual + "ºC";
                 }else {
-                    e0Temp = "<i class='icon ion-thermometer'></i>0: "+data.current.temps[0].tool0.actual + "ºC / " + data.current.temps[0].tool0.target + "ºC";
+                    e0Temp = "<i class='icon ion-thermometer'></i> "+data.current.temps[0].tool0.actual + "ºC / " + data.current.temps[0].tool0.target + "ºC";
                 }
-            } else {
-                e0Temp = "null";
+                $("#extruder_temp").html(e0Temp);
             }
-            var e1Temp;
-            if(typeof(data.current.temps[0].tool1) !== "undefined"){
-                if(data.current.temps[0].tool0.target === 0){
-                    e1Temp = "<i class='icon ion-thermometer'></i>1: "+data.current.temps[0].tool1.actual + "ºC";
-                }else {
-                    e1Temp = "<i class='icon ion-thermometer'></i>1: "+data.current.temps[0].tool1.actual + "ºC / " + data.current.temps[0].tool1.target + "ºC";
-                }
-            } else {
-                e1Temp = "null";
-            }
-            var tempString;
-            if(e0Temp != "null"){
-                tempString = e0Temp;
-            }
-            if(e1Temp != "null"){
-                tempString = tempString + " " + e1Temp;
-            }
-            if(bedTemp != "null"){
-                tempString = tempString + " " + bedTemp;
-            }
-            $("#temperatures").html(tempString);
         }
         if(data.current.state.flags.printing){
             // switch to the printing view
@@ -214,7 +195,7 @@ function formatSeconds(s){
     return date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
 }
 
-// ------------- button click events -------------
+// ------------- button events -------------
 // first time setup buttons
 $("#test_connection_btn").click(function() {
     testConnection("first-setup");
@@ -296,6 +277,7 @@ $("#save_settings_btn").click(function(){
     localStorage.setItem("ip_address", ip);
     apikey = $("#settings_apikey_field").val();
     localStorage.setItem("apikey", apikey);
+    socket.close();
     connect();
 });
 $("#settings_test_connection_btn").click(function(){
@@ -322,7 +304,6 @@ $("#set_temp_btn").click(function(){
     }else {
         sendCommand({"command": "M140 S" + $("#temp_field").val()});
     }
-    sendCommand({"command": "M104 S" + $("#temp_field").val()});
 });
 $("#temp_off_btn").click(function(){
     if($("input[name=heater]:checked").val() === "extruder"){
