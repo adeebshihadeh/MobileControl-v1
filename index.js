@@ -251,33 +251,33 @@ $("#settings_tab_btn").click(function() {
 
 // control tab buttons
 $("#x_neg_jog_btn").click(function() {
-    sendCommand({"commands": ["G91","G1 X-" + $('input[name=jog_increment]:checked').val(),"G90"]});
+    sendCommand({"commands": ["G91","G1 X-" + $("input[name=jog_increment]:checked").val(),"G90"]});
 });
 $("#x_home_btn").click(function() {
     sendCommand({"command": "G28X"});
 });
 $("#x_pos_jog_btn").click(function() {
-    sendCommand({"commands": ["G91","G1 X" + $('input[name=jog_increment]:checked').val(),"G90"]});
+    sendCommand({"commands": ["G91","G1 X" + $("input[name=jog_increment]:checked").val(),"G90"]});
 });
 
 $("#y_neg_jog_btn").click(function() {
-    sendCommand({"commands": ["G91","G1 Y-" + $('input[name=jog_increment]:checked').val(),"G90"]});
+    sendCommand({"commands": ["G91","G1 Y-" + $("input[name=jog_increment]:checked").val(),"G90"]});
 });
 $("#y_home_btn").click(function() {
     sendCommand({"command": "G28Y"});
 });
 $("#y_pos_jog_btn").click(function() {
-    sendCommand({"commands": ["G91","G1 Y" + $('input[name=jog_increment]:checked').val(),"G90"]});
+    sendCommand({"commands": ["G91","G1 Y" + $("input[name=jog_increment]:checked").val(),"G90"]});
 });
 
 $("#z_neg_jog_btn").click(function() {
-    sendCommand({"commands": ["G91","G1 Z-" + $('input[name=jog_increment]:checked').val(),"G90"]});
+    sendCommand({"commands": ["G91","G1 Z-" + $("input[name=jog_increment]:checked").val(),"G90"]});
 });
 $("#z_home_btn").click(function() {
     sendCommand({"command": "G28Z"});
 });
 $("#z_pos_jog_btn").click(function() {
-    sendCommand({"commands": ["G91","G1 Z" + $('input[name=jog_increment]:checked').val(),"G90"]});
+    sendCommand({"commands": ["G91","G1 Z" + $("input[name=jog_increment]:checked").val(),"G90"]});
 });
 
 $("#motors_off_btn").click(function() {
@@ -310,29 +310,39 @@ $("#restore_settings_btn").click(function(){
 
 // extrusion tab  buttons
 $("#extrude_btn").click(function(){
-    sendCommand({"commands": ["G91","G1 E" + $('input[name=extrude_length]:checked').val() + " F300","G90"]});
+    sendCommand({"commands": ["G91","G1 E" + $("input[name=extrude_length]:checked").val() + " F300","G90"]});
 });
 $("#retract_btn").click(function(){
-    sendCommand({"commands": ["G91","G1 E-" + $('input[name=extrude_length]:checked').val() + " F300","G90"]});
+    sendCommand({"commands": ["G91","G1 E-" + $("input[name=extrude_length]:checked").val() + " F300","G90"]});
 });
 
 $("#set_temp_btn").click(function(){
-    sendCommand({"command": "M104 S" + $("#hotend_temp_field").val()});
+    if($("input[name=heater]:checked").val() === "extruder"){
+        sendCommand({"command": "M104 S" + $("#temp_field").val()});
+    }else {
+        sendCommand({"command": "M140 S" + $("#temp_field").val()});
+    }
+    sendCommand({"command": "M104 S" + $("#temp_field").val()});
 });
-$("#hotend_off_btn").click(function(){
-    sendCommand({"command": "M104 S0"});
+$("#temp_off_btn").click(function(){
+    if($("input[name=heater]:checked").val() === "extruder"){
+        sendCommand({"command": "M104 S0"});
+    }else {
+        sendCommand({"command": "M140 S0"});
+    }
+    
 });
 $("#neg_increment_temp_btn").click(function(){
-    $("#hotend_temp_field").val(parseInt($("#hotend_temp_field").val())-1);
+    $("#temp_field").val(parseInt($("#temp_field").val())-1);
     
-    if(parseInt($("#hotend_temp_field").val()) === hotend_min_temp_limit){
+    if(parseInt($("#temp_field").val()) === hotend_min_temp_limit){
         $("#neg_increment_temp_btn").prop("disabled", true);
     }
 });
 $("#pos_increment_temp_btn").click(function(){
-    $("#hotend_temp_field").val(parseInt($("#hotend_temp_field").val())+1);
+    $("#temp_field").val(parseInt($("#temp_field").val())+1);
     
-    if(parseInt($("#hotend_temp_field").val()) !== hotend_min_temp_limit){
+    if(parseInt($("#temp_field").val()) !== hotend_min_temp_limit){
         $("#neg_increment_temp_btn").prop("disabled", false);
     }
 });

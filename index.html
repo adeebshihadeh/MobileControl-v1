@@ -99,17 +99,17 @@
                         <div class="row row-half-screen">
                             <div class="row">
                                 <div class="btn-group btn-spaced" data-toggle="buttons">
-                                    <label class="btn btn-default">
+                                    <label class="btn btn-lg btn-default">
                                         <input type="radio" name="extrude_length" value="1"/> 1
                                     </label> 
-                                    <label class="btn btn-default">
-                                        <input type="radio" name="extrude_length" value="5" /> 5
+                                    <label class="btn btn-lg btn-default">
+                                        <input type="radio" name="extrude_length" value="5"/> 5
                                     </label> 
-                                    <label class="btn btn-default active">
-                                        <input type="radio" name="extrude_length" value="10" checked="checked" /> 10
+                                    <label class="btn btn-lg btn-default active">
+                                        <input type="radio" name="extrude_length" value="10" checked="checked"/> 10
                                     </label> 
-                                    <label class="btn btn-default">
-                                        <input type="radio" name="extrude_length" value="100" /> 100
+                                    <label class="btn btn-lg btn-default">
+                                        <input type="radio" name="extrude_length" value="100"/> 100
                                     </label>
                                 </div>
                             </div>
@@ -124,13 +124,23 @@
                         			<span class="input-group-btn">
                         				<button class="btn btn-lg btn-primary" type="button" id="neg_increment_temp_btn"><i class='icon ion-minus-circled'></i></button>
                         			</span>
-                        			<input type="number" class="form-control input-lg" value="5" id="hotend_temp_field" readonly>
+                        			<input type="number" class="form-control input-lg" value="5" id="temp_field" readonly>
                         			<span class="input-group-btn">
                         				<button class="btn btn-lg btn-primary" type="button" id="pos_increment_temp_btn"><i class='icon ion-plus-circled'></i></button>
                         			</span>
                         		</div>
-                                <button type="button" class="btn btn-lg btn-primary btn-spaced" id="set_temp_btn">Set Temp</button>
-                                <button type="button" class="btn btn-lg btn-danger btn-spaced" id="hotend_off_btn">Hotend Off</button>
+                                <button type="button" class="btn btn-lg btn-primary btn-spaced" id="set_temp_btn">Set</button>
+                                <button type="button" class="btn btn-lg btn-danger btn-spaced" id="temp_off_btn">Off</button>
+                                <div class="row">
+                                    <div class="btn-group btn-spaced" data-toggle="buttons">
+                                        <label class="btn btn-lg btn-default active">
+                                            <input type="radio" name="heater" value="extruder" checked="checked"/> Extruder
+                                        </label> 
+                                        <label class="btn btn-lg btn-default">
+                                            <input type="radio" name="heater" value="bed"/> Bed
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
