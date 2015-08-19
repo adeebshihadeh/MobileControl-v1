@@ -1,5 +1,6 @@
 // settings
 var hotend_min_temp_limit = 0; // lowest value the interface will allow the hotend to be set to
+var hotend_max_temp_limit = 350;
 
 var ip;
 var apikey;
@@ -176,11 +177,18 @@ function parseData(dataString){
             
             // update print time info
             console.log(data.current);
-            $("#printing_time_left").text(formatSeconds(data.current.progress.printTimeLeft));
+            if(data.current.progress.printTimeLeft === null){
+                $("#printing_time_left").text("Calculating...");
+                $("#printing_time_left").css("font-size", "16vw");
+            }else {
+                $("#printing_time_left").text(formatSeconds(data.current.progress.printTimeLeft));
+                $("#printing_time_left").css("font-size", "23vw");
+            }
             $("#printing_time_elapsed").text(formatSeconds(data.current.progress.printTime));
             
             // update print progress bar
-            $("#printing_view").css("background-color", "linear-gradient(90deg, #439BFB "+data.current.progress.completion+"%, white 0%)");
+            $("#printing_view").css({background: "linear-gradient(90deg, #439BFB "+parseInt(data.current.progress.completion)+"%, white 0%)"});
+            console.log(parseInt(data.current.progress.completion));
         } else if(!data.current.state.flags.printing && currentView === "printing_view"){
             switchView("main");
             // clear background color

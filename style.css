@@ -108,7 +108,6 @@
 #printing_view {
     text-align: center;
     top: 50%;
-    /*transform: translateY(-50%);*/
     color: black;
     height: 100vh;
     
