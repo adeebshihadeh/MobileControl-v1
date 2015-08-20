@@ -1,6 +1,6 @@
 // settings
 var hotend_min_temp_limit = 0; // lowest value the interface will allow the hotend to be set to
-var hotend_max_temp_limit = 350;
+var hotend_max_temp_limit = 350; // lowest value the interface will allow the hotend to be set to
 
 var ip;
 var apikey;
@@ -13,6 +13,11 @@ $(document).ready(function() {
 
 function connect(){
     socket = new WebSocket("ws://"+ip+"/sockjs/websocket");
+    
+    socket.onopen = function() {
+        switchView("main");
+        switchTab("info_tab");
+    };
     
     socket.onmessage = function(e) {
         //console.log('message', e.data);
@@ -99,11 +104,10 @@ function setup(){
         // show the first time setup
         switchView("first_time_setup");
     }else {
-        switchView("main");
+        switchView("loading_view");
         ip = localStorage.getItem("ip_address");
         apikey = localStorage.getItem("apikey");
         connect();
-        switchTab("info_tab");
     }
 }
 
@@ -115,6 +119,7 @@ function switchView(view) {
     $("#printing_view").hide();
     $("#main").hide();
     $("#disconnected_view").hide();
+    $("#loading_view").hide();
     
     // show the desired view
     $("#"+view).show();
@@ -142,7 +147,6 @@ function switchTab(tab){
 
 function parseData(dataString){
     var data = JSON.parse(dataString);
-    console.log(data);
     
     if(typeof(data.current) !== "undefined"){
         // uppdate printer status
@@ -176,7 +180,6 @@ function parseData(dataString){
             }
             
             // update print time info
-            console.log(data.current);
             if(data.current.progress.printTimeLeft === null){
                 $("#printing_time_left").text("Calculating...");
                 $("#printing_time_left").css("font-size", "16vw");
@@ -188,11 +191,10 @@ function parseData(dataString){
             
             // update print progress bar
             $("#printing_view").css({background: "linear-gradient(90deg, #439BFB "+parseInt(data.current.progress.completion)+"%, white 0%)"});
-            console.log(parseInt(data.current.progress.completion));
         } else if(!data.current.state.flags.printing && currentView === "printing_view"){
             switchView("main");
             // clear background color
-            $("body").css("background-color", "");
+            $("#printing_view").css("background", "white");
         }
     }
 }
@@ -334,6 +336,19 @@ $("#pos_increment_temp_btn").click(function(){
     if(parseInt($("#temp_field").val()) !== hotend_min_temp_limit){
         $("#neg_increment_temp_btn").prop("disabled", false);
     }
+});
+
+// disconnected view buttons
+$("#start_over_btn").click(function(){
+    if(confirm("Are you sure you want to start over?")){
+        // clear all saved info
+        localStorage.clear();
+        // refresh the page
+        location.reload();
+    }
+});
+$("#reconnect_btn").click(function(){
+    connect();
 });
 
 

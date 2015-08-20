@@ -118,7 +118,7 @@
 }
 
 #printing_time_elapsed {
-    font-size: 10vw;
+    font-size: 14vw;
 }
 
 #temperatures {
@@ -141,4 +141,10 @@
 
 #temp_field {
     text-align: center;
+}
+
+#loading_view {
+    text-align: center;
+    transform: translateY(50%);
+    font-size: 18vw;
 }
