@@ -62,10 +62,11 @@
     margin-top: 5px;
 }
 
-.btn-third {
+.btn-half {
     width: 100%;
-    height: 34vh;
+    height: 50vh;
     border-radius: 0;
+    font-size: 6vw;
 }
 
 .row-half-screen {
@@ -75,6 +76,11 @@
 
 .row-no-margin {
     margin: 0;
+}
+
+.padded-row {
+    padding-left: 6%;
+    padding-right: 6%;
 }
 
 #main {
@@ -147,4 +153,12 @@
     text-align: center;
     transform: translateY(50%);
     font-size: 18vw;
+}
+
+#motors_off_btn {
+    width: 100%;
+    height: 37vh;
+    font-size: 7vw;
+    border-radius: 0;
+    margin-top: 5px;
 }
